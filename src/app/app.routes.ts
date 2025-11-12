@@ -67,6 +67,14 @@ import { Create as TagCreate } from './components/tag/create/create';
 import { Update as TagUpdate } from './components/tag/update/update';
 import { Delete as TagDelete } from './components/tag/delete/delete';
 
+// Auth components with aliases
+import { Login } from './components/auth/login/login';
+import { Register } from './components/auth/register/register';
+
+// Auth Guard
+import { AuthGuard } from './guards/authguard';
+
+
 export const routes: Routes = [
     { 
         path: '', 
@@ -74,181 +82,238 @@ export const routes: Routes = [
         pathMatch: 'full' 
     },
     {
+        path: "login",
+        component: Login
+    },
+    {
+        path: "register",
+        component: Register
+    },
+    {
         path: "clients",
-        component: ClientGetall
+        component: ClientGetall,
+        canActivate: [AuthGuard]
     },
     {
         path: "clients/new",
-        component: ClientCreate
+        component: ClientCreate,
+        canActivate: [AuthGuard]
     },
     {
         path: "clients/edit/:id",
-        component: ClientUpdate
+        component: ClientUpdate,
+        canActivate: [AuthGuard]
     },
     {
         path: "clients/delete/:id",
-        component: ClientDelete
+        component: ClientDelete,
+        canActivate: [AuthGuard]
     },
     {
         path: "categories",
-        component: CategoryGetall
+        component: CategoryGetall,
+        canActivate: [AuthGuard]
     },
     {
         path: "categories/new",
-        component: CategoryCreate
+        component: CategoryCreate,
+        canActivate: [AuthGuard]
     },
     {
         path: "categories/edit/:id",
-        component: CategoryUpdate
+        component: CategoryUpdate,
+        canActivate: [AuthGuard]
     },
     {
         path: "categories/delete/:id",
-        component: CategoryDelete
+        component: CategoryDelete,
+        canActivate: [AuthGuard]
     },
     {
         path: "orders",
-        component: OrderGetall
+        component: OrderGetall,
+        canActivate: [AuthGuard]
     },
     {
         path: "orders/new",
-        component: OrderCreate
+        component: OrderCreate,
+        canActivate: [AuthGuard]
     },
     {
         path: "orders/edit/:id",
-        component: OrderUpdate
+        component: OrderUpdate,
+        canActivate: [AuthGuard]
     },
     {
         path: "orders/delete/:id",
-        component: OrderDelete
+        component: OrderDelete,
+        canActivate: [AuthGuard]
     },
     {
         path: "orderDetails",
-        component: OrderDetailGetall
+        component: OrderDetailGetall,
+        canActivate: [AuthGuard]
     },
     {
         path: "orderDetails/new",
-        component: OrderDetailCreate
+        component: OrderDetailCreate,
+        canActivate: [AuthGuard]
     },
     {
         path: "orderDetails/edit/:id",
-        component: OrderDetailUpdate
+        component: OrderDetailUpdate,
+        canActivate: [AuthGuard]
     },
     {
         path: "orderDetails/delete/:id",
-        component: OrderDetailDelete
+        component: OrderDetailDelete,
+        canActivate: [AuthGuard]
     },
     {
         path: "payments",
-        component: PaymentGetall
+        component: PaymentGetall,
+        canActivate: [AuthGuard]
     },
     {
         path: "payments/new",
-        component: PaymentCreate
+        component: PaymentCreate,
+        canActivate: [AuthGuard]
     },
     {
         path: "payments/edit/:id",
-        component: PaymentUpdate
+        component: PaymentUpdate,
+        canActivate: [AuthGuard]
     },
     {
         path: "payments/delete/:id",
-        component: PaymentDelete
+        component: PaymentDelete,
+        canActivate: [AuthGuard]
     },
     {
         path: "products",
-        component: ProductGetall
+        component: ProductGetall,
+        canActivate: [AuthGuard]
     },
     {
         path: "products/new",
-        component: ProductCreate
+        component: ProductCreate,
+        canActivate: [AuthGuard]
     },
     {
         path: "products/edit/:id",
-        component: ProductUpdate
+        component: ProductUpdate,
+        canActivate: [AuthGuard]
     },
     {
         path: "products/delete/:id",
-        component: ProductDelete
+        component: ProductDelete,
+        canActivate: [AuthGuard]
     },
     {
         path: "productTags",
-        component: ProductTagGetall
+        component: ProductTagGetall,
+        canActivate: [AuthGuard]
     },
     {
         path: "productTags/new",
-        component: ProductTagCreate
+        component: ProductTagCreate,
+        canActivate: [AuthGuard]
     },
     {
         path: "productTags/edit/:id",
-        component: ProductTagUpdate
+        component: ProductTagUpdate,
+        canActivate: [AuthGuard]
     },
     {
         path: "productTags/delete/:id",
-        component: ProductTagDelete
+        component: ProductTagDelete,
+        canActivate: [AuthGuard]
     },
     {
         path: "reviews",
-        component: ReviewGetall
+        component: ReviewGetall,
+        canActivate: [AuthGuard]
     },
     {
         path: "reviews/new",
-        component: ReviewCreate
+        component: ReviewCreate,
+        canActivate: [AuthGuard]
     },
     {
         path: "reviews/edit/:id",
-        component: ReviewUpdate
+        component: ReviewUpdate,
+        canActivate: [AuthGuard]
     },
     {
         path: "reviews/delete/:id",
-        component: ReviewDelete
+        component: ReviewDelete,
+        canActivate: [AuthGuard]
     },
     {
         path: "sellers",
-        component: SellerGetall
+        component: SellerGetall,
+        canActivate: [AuthGuard]
     },
     {
         path: "sellers/new",
-        component: SellerCreate
+        component: SellerCreate,
+        canActivate: [AuthGuard]
     },
     {
         path: "sellers/edit/:id",
-        component: SellerUpdate
+        component: SellerUpdate,
+        canActivate: [AuthGuard]
     },
     {
         path: "sellers/delete/:id",
-        component: SellerDelete
+        component: SellerDelete,
+        canActivate: [AuthGuard]
     },
     {
         path: "shipments",
-        component: ShipmentGetall
+        component: ShipmentGetall,
+        canActivate: [AuthGuard]
     },
     {
         path: "shipments/new",
-        component: ShipmentCreate
+        component: ShipmentCreate,
+        canActivate: [AuthGuard]
     },
     {
         path: "shipments/edit/:id",
-        component: ShipmentUpdate
+        component: ShipmentUpdate,
+        canActivate: [AuthGuard]
     },
     {
         path: "shipments/delete/:id",
-        component: ShipmentDelete
+        component: ShipmentDelete,
+        canActivate: [AuthGuard]
     },
     {
         path: "tags",
-        component: TagGetall
+        component: TagGetall,
+        canActivate: [AuthGuard]
     },
     {
         path: "tags/new",
-        component: TagCreate
+        component: TagCreate,
+        canActivate: [AuthGuard]
     },
     {
         path: "tags/edit/:id",
-        component: TagUpdate
+        component: TagUpdate,
+        canActivate: [AuthGuard]
     },
     {
         path: "tags/delete/:id",
-        component: TagDelete
+        component: TagDelete,
+        canActivate: [AuthGuard]
     },
+    {
+        path: "**",
+        redirectTo: "login",
+        pathMatch: "full"
+    }
 
 ];
 
