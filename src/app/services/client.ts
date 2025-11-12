@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, BehaviorSubject, tap } from 'rxjs';
+import { Observable, BehaviorSubject, tap, map } from 'rxjs';
 import { ClientI} from '../models/client';
 import { AuthService } from './auth';
 
@@ -28,13 +28,10 @@ export class ClientService {
 
 
   getAllClients(): Observable<ClientI[]> {
-    return this.http.get<ClientI[]>(this.baseUrl, { headers: this.getHeaders() })
-    // .pipe(
-    //   tap(response => {
-    //       // console.log('Fetched clients:', response);
-    //     })
-    // )
-    ;
+    return this.http.get<{ clients: ClientI[] }>(this.baseUrl, { headers: this.getHeaders() })
+      .pipe(
+        map(response => response.clients)
+      );
   }
 
   getClientById(id: number): Observable<ClientI> {

@@ -1,1 +1,27 @@
-<p>update works!</p>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h3>Actualizar Categoría</h3>
+    </div>
+    <div class="card-body">
+      <p-toast></p-toast>
+      <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="p-fluid">
+          <div class="p-field mb-3">
+            <label for="name">Nombre</label>
+            <input id="name" type="text" pInputText formControlName="name"
+                   [ngClass]="{'ng-invalid ng-dirty': form.get('name')?.invalid && form.get('name')?.touched}" />
+            <small class="p-error" *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+              {{ getFieldError('name') }}
+            </small>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end mt-4">
+          <p-button label="Cancelar" styleClass="p-button-secondary me-2" (onClick)="cancelar()"></p-button>
+          <p-button label="Actualizar" type="submit" [loading]="loading"></p-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

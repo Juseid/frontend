@@ -10,7 +10,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 
 @Component({
-  selector: 'app-getall',
+  selector: 'app-category-getall',
   imports: [TableModule, CommonModule, ButtonModule, RouterModule, ConfirmDialogModule, ToastModule],
   templateUrl: './getall.html',
   styleUrl: './getall.css',
